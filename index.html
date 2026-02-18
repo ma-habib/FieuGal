@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="FieuGal-logo.png" type="image/x-icon">
+    <link rel="icon" href="images/FieuGal-logo.png" type="image/x-icon">
     <title>FieuGal | Expert Bookkeeping & Financial Growth Partners</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
@@ -314,8 +314,66 @@
             line-height: 1.6;
             text-align: center;
         }
+
+        /* Technology Partner Section */
+        .tech-section {
+            padding: 80px 10%;
+            background: #fff;
+            text-align: center;
+        }
+
+        .tech-grid {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        /* Optimized Technology Partner Section */
+        .tech-logo {
+            /* Increases the size - adjust 180px to your preference */
+            max-width: 180px; 
+            height: auto;
+            
+            /* Makes the logo darker/more visible by default */
+            filter: grayscale(100%); 
+            opacity: 0.9; 
+            
+            /* Keeps the smooth transition */
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            padding: 10px;
+        }
+
+        .tech-logo:hover {
+            filter: grayscale(0%); /* Pops into full brand color */
+            opacity: 1; /* Full brightness */
+            transform: scale(1.15); /* Slightly larger pop-out effect */
+            cursor: pointer;
+        }
+
+        /* If the QuickBooks badge still looks small, use this specific override */
+        .elite-badge {
+            max-width: 140px; 
+        }
     </style>
 </head>
+
+<script>
+function toggleDetails(card) {
+    // This allows clicking to open one and close others
+    const allCards = document.querySelectorAll('.industry-card');
+    const isActive = card.classList.contains('active');
+    
+    allCards.forEach(c => c.classList.remove('active'));
+
+    if (!isActive) {
+        card.classList.add('active');
+    }
+}
+</script>
+
 <body>
 
     <nav>
@@ -435,35 +493,88 @@
 
     <section class="industry-container" id="industries">
         <div class="industry-header">
-            <h2>Asian Bookkeeping Services by Industry</h2>
+            <h2>Canadian Bookkeeping Services by Industry</h2>
             <p>We tailor our bookkeeping and payroll services to fit the financial needs of Ontario’s leading industries.</p>
         </div>
 
         <div class="industry-row">
-            <div class="industry-card">
+            <div class="industry-card" onclick="toggleDetails(this)">
                 <h3>E-Commerce <br> Businesses</h3>
                 <p>Automate bookkeeping, sync with Shopify, and manage online transactions securely.</p>
+                <div class="extra-details">
+                    <ul>
+                        <li>Shopify & Amazon Integration</li>
+                        <li>Inventory Management</li>
+                        <li>Multi-currency Reconciliation</li>
+                    </ul>
+                </div>
             </div>
 
-            <div class="industry-card">
+            <div class="industry-card" onclick="toggleDetails(this)">
                 <h3>Digital Marketing <br> Agencies</h3>
                 <p>Simplify invoicing, track expenses, and gain insights into project profitability.</p>
+                <div class="extra-details">
+                    <ul>
+                        <li>Ad Spend Tracking</li>
+                        <li>Project-Based Profitability</li>
+                        <li>Contractor (1099/T4A) Mgmt</li>
+                    </ul>
+                </div>
             </div>
 
-            <div class="industry-card">
+            <div class="industry-card" onclick="toggleDetails(this)">
                 <h3>Real Estate <br> Investors</h3>
                 <p>Monitor rental income and manage property expenses with expert bookkeepers.</p>
+                <div class="extra-details">
+                    <ul>
+                        <li>Rental Income Tracking</li>
+                        <li>Expense Categorization</li>
+                        <li>Capital Gain Reporting</li>
+                    </ul>
+                </div>
             </div>
 
-            <div class="industry-card">
+            <div class="industry-card" onclick="toggleDetails(this)">
                 <h3>Property <br> Developers</h3>
                 <p>Track project costs and ensure compliance with accurate, cloud-based reporting.</p>
+                <div class="extra-details">
+                    <ul>
+                        <li>Work-in-Progress (WIP) Reports</li>
+                        <li>Construction Loan Tracking</li>
+                        <li>Budget vs. Actual Analysis</li>
+                    </ul>
+                </div>
             </div>
 
-            <div class="industry-card">
+            <div class="industry-card" onclick="toggleDetails(this)">
                 <h3>Property <br> Managers</h3>
                 <p>Oversee rent collection, payroll, and maintenance expenses with confidence.</p>
+                <div class="extra-details">
+                    <ul>
+                        <li>Trust Account Reconciliation</li>
+                        <li>Tenant Statement Prep</li>
+                        <li>Maintenance Bill Payments</li>
+                    </ul>
+                </div>
             </div>
+        </div>
+    </section>
+
+    <section class="tech-section">
+        <div class="section-title">
+            <h2>Technology and Cloud-Based Solutions You Can Trust</h2>
+            <p>We protect your financial data with secure accounting services and system integrations that keep you compliant.</p>
+        </div>
+
+        <div class="tech-grid">
+            <img src="images/Quikeboook-logo.png" alt="QuickBooks Elite" class="tech-logo elite-badge">
+            
+            <img src="images/dext-logo.png" alt="Dext" class="tech-logo">
+            
+            <img src="images/hubdoc-logo.png" alt="Hubdoc" class="tech-logo">
+
+            <img src="images/shopify-logo.png" alt="Shopify" class="tech-logo">
+            
         </div>
     </section>
 
@@ -500,7 +611,7 @@
             </div>
         </div>
         <div class="copyright">
-            &copy; 2025 FieuGal Financial Services. All Rights Reserved.
+            &copy; 2026 FieuGal Financial Services. All Rights Reserved.
         </div>
     </footer>
 
