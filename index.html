@@ -265,21 +265,26 @@
 
         .industry-row {
             display: flex;
-            justify-content: center;
+            justify-content: flex-start;
             gap: 20px;
-            flex-wrap: wrap;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            padding: 30px;
+            -webkit-overflow-scrolling: touch;
+        }
+        /* Add this new rule to hidethe scrollbar */
+        .industry-row::-webkit-scrollbar {
+            display: none;
         }
 
         /* Enhanced Hover Effect for FieuGal Industry Cards */
         .industry-card {
             background: white;
-            flex: 1;
-            min-width: 220px;
-            max-width: 250px;
+            flex: 0 0 280px; /* Fixed width for better control */
             padding: 45px 25px;
             border-radius: 30px; 
             box-shadow: 0 10px 30px rgba(0,0,0,0.04);
-            
+            scroll-snap-align: center;
             /* This creates the smooth animation */
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
             
@@ -357,6 +362,59 @@
         .elite-badge {
             max-width: 140px; 
         }
+        /* Value Proposition Section */
+        .value-section {
+            padding: 100px 10%;
+            background-color: #ffffff;
+            text-align: center;
+        }
+
+        .value-container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .value-card {
+            flex: 1;
+            min-width: 280px;
+            max-width: 350px;
+            padding: 30px;
+            border-radius: 15px;
+            background: #fff;
+            /* This creates the smooth transition for the pop-up */
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        /* The Pop-Up Effect on Hover */
+        .value-card:hover {
+            transform: translateY(-15px); /* Lifts the card up */
+            box-shadow: 0 20px 40px rgba(0, 51, 102, 0.1); /* Adds a soft shadow */
+        }
+
+        /* Fixes the "Abnormally Big" size */
+        .value-card img {
+            width: 120px;   /* Exact size to match the image */
+            height: 120px;
+            margin-bottom: 25px;
+            object-fit: contain;
+        }
+
+        .value-card h3 {
+            font-size: 20px;
+            color: #1a365d;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .value-card p {
+            font-size: 15px;
+            color: #4a5568;
+            line-height: 1.7;
+        }
+
+
     </style>
 </head>
 
@@ -391,6 +449,28 @@ function toggleDetails(card) {
         <h1>Empowering Businesses Through Smarter Financial Management</h1>
         <p>Your online bookkeeping and financial growth partners. We deliver tailored services in payroll, reporting, and forecasting.</p>
         <a href="#contact" class="cta-btn">GET STARTED NOW</a>
+    </section>
+
+    <section class="value-section">
+        <div class="value-container">
+            <div class="value-card">
+                <img src="images/accounting service.png" alt="Cloud Technology">
+                <h3>Cloud Accounting Technology</h3>
+                <p>Modern, cloud-based bookkeeping systems providing real-time access, secure data storage, and seamless collaboration for your entire business team.</p>
+            </div>
+
+            <div class="value-card">
+                <img src="images/monitoring.png" alt="Industry Specialization">
+                <h3>Specialized by Industry</h3>
+                <p>Tailored bookkeeping and payroll solutions built for e-commerce, real estate, and digital marketing firms seeking accuracy, insight, and scalability.</p>
+            </div>
+
+            <div class="value-card">
+                <img src="images/Growth.png" alt="Growth Focus">
+                <h3>Growth & Advisory Focus</h3>
+                <p>Beyond bookkeeping, our CFO advisory services provide insight, strategy, and data-driven support to help your business plan, adapt, and grow smarter.</p>
+            </div>
+        </div>
     </section>
 
     <section class="services" id="services">
@@ -497,67 +577,70 @@ function toggleDetails(card) {
             <p>We tailor our bookkeeping and payroll services to fit the financial needs of Ontario’s leading industries.</p>
         </div>
 
-        <div class="industry-row">
-            <div class="industry-card" onclick="toggleDetails(this)">
-                <h3>E-Commerce <br> Businesses</h3>
-                <p>Automate bookkeeping, sync with Shopify, and manage online transactions securely.</p>
-                <div class="extra-details">
-                    <ul>
-                        <li>Shopify & Amazon Integration</li>
-                        <li>Inventory Management</li>
-                        <li>Multi-currency Reconciliation</li>
-                    </ul>
+        <div class="slider-container">
+            <div class="industry-row">
+                <div class="industry-card" onclick="toggleDetails(this)">
+                    <h3>E-Commerce <br> Businesses</h3>
+                    <p>Automate bookkeeping, sync with Shopify, and manage online transactions securely.</p>
+                    <div class="extra-details">
+                        <ul>
+                            <li>Shopify & Amazon Integration</li>
+                            <li>Inventory Management</li>
+                            <li>Multi-currency Reconciliation</li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
 
-            <div class="industry-card" onclick="toggleDetails(this)">
-                <h3>Digital Marketing <br> Agencies</h3>
-                <p>Simplify invoicing, track expenses, and gain insights into project profitability.</p>
-                <div class="extra-details">
-                    <ul>
-                        <li>Ad Spend Tracking</li>
-                        <li>Project-Based Profitability</li>
-                        <li>Contractor (1099/T4A) Mgmt</li>
-                    </ul>
+                <div class="industry-card" onclick="toggleDetails(this)">
+                    <h3>Digital Marketing <br> Agencies</h3>
+                    <p>Simplify invoicing, track expenses, and gain insights into project profitability.</p>
+                    <div class="extra-details">
+                        <ul>
+                            <li>Ad Spend Tracking</li>
+                            <li>Project-Based Profitability</li>
+                            <li>Contractor (1099/T4A) Mgmt</li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
 
-            <div class="industry-card" onclick="toggleDetails(this)">
-                <h3>Real Estate <br> Investors</h3>
-                <p>Monitor rental income and manage property expenses with expert bookkeepers.</p>
-                <div class="extra-details">
-                    <ul>
-                        <li>Rental Income Tracking</li>
-                        <li>Expense Categorization</li>
-                        <li>Capital Gain Reporting</li>
-                    </ul>
+                <div class="industry-card" onclick="toggleDetails(this)">
+                    <h3>Real Estate <br> Investors</h3>
+                    <p>Monitor rental income and manage property expenses with expert bookkeepers.</p>
+                    <div class="extra-details">
+                        <ul>
+                            <li>Rental Income Tracking</li>
+                            <li>Expense Categorization</li>
+                            <li>Capital Gain Reporting</li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
 
-            <div class="industry-card" onclick="toggleDetails(this)">
-                <h3>Property <br> Developers</h3>
-                <p>Track project costs and ensure compliance with accurate, cloud-based reporting.</p>
-                <div class="extra-details">
-                    <ul>
-                        <li>Work-in-Progress (WIP) Reports</li>
-                        <li>Construction Loan Tracking</li>
-                        <li>Budget vs. Actual Analysis</li>
-                    </ul>
+                <div class="industry-card" onclick="toggleDetails(this)">
+                    <h3>Property <br> Developers</h3>
+                    <p>Track project costs and ensure compliance with accurate, cloud-based reporting.</p>
+                    <div class="extra-details">
+                        <ul>
+                            <li>Work-in-Progress (WIP) Reports</li>
+                            <li>Construction Loan Tracking</li>
+                            <li>Budget vs. Actual Analysis</li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
 
-            <div class="industry-card" onclick="toggleDetails(this)">
-                <h3>Property <br> Managers</h3>
-                <p>Oversee rent collection, payroll, and maintenance expenses with confidence.</p>
-                <div class="extra-details">
-                    <ul>
-                        <li>Trust Account Reconciliation</li>
-                        <li>Tenant Statement Prep</li>
-                        <li>Maintenance Bill Payments</li>
-                    </ul>
+                <div class="industry-card" onclick="toggleDetails(this)">
+                    <h3>Property <br> Managers</h3>
+                    <p>Oversee rent collection, payroll, and maintenance expenses with confidence.</p>
+                    <div class="extra-details">
+                        <ul>
+                            <li>Trust Account Reconciliation</li>
+                            <li>Tenant Statement Prep</li>
+                            <li>Maintenance Bill Payments</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
+
     </section>
 
     <section class="tech-section">
