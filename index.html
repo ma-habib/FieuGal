@@ -174,27 +174,48 @@
 
         /* Industries Section */
         .industries {
-            padding: 80px 10%;
+        /* Increase padding to give the content room to breathe */
+        padding: 100px 5%; 
+        /* Use a light contrasting color to differentiate it from a white section */
+        background-color: #f1f5f9; 
+        text-align: center;
         }
 
         .industry-list {
-            display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
-            margin-top: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: stretch; /* Makes all cards the same height */
+        gap: 20px; /* Wider gap between the four sectors */
+        margin-top: 50px;
+        flex-wrap: wrap;
         }
 
         .industry-item {
-            text-align: center;
-            margin: 20px;
-            width: 150px;
+        background: #ffffff; /* White card on the light grey background */
+        flex: 0 1 250px; /* Fixed sizing for symmetry */
+        padding: 40px 20px;
+        border-radius: 12px; /* Subtle rounded corners */
+        
+        /* Use a soft shadow and thin border to define the card without animation */
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        border: 1px solid #e2e8f0;
+        
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        transition: none; /* Explicitly removes any pop-up/hover transition */
         }
 
         .industry-item i {
-            font-size: 30px;
-            display: block;
-            margin-bottom: 10px;
-            color: var(--primary-color);
+            font-size: 32px;
+            color: #1a365d; /* Matches the FIEUGAL branding */
+            margin-bottom: 20px;
+        }
+
+        .industry-item span {
+            font-weight: 600;
+            color: #334155;
+            font-size: 18px;
         }
 
         /* Footer */
@@ -536,7 +557,7 @@ function toggleDetails(card) {
                 <input type="text" placeholder="Company Name" style="padding: 15px; border: 1px solid #ddd; border-radius: 5px;">
                 <select style="padding: 15px; border: 1px solid #ddd; border-radius: 5px;">
                     <option>Monthly Revenue</option>
-                    <option>< $10k</option>
+                    <option> $10k</option>
                     <option>$10k - $50k</option>
                     <option>$50k+</option>
                 </select>
